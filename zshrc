@@ -45,4 +45,9 @@ then
 fi
 
 # Aliases
+# alias ="sw_vers"
+alias dsk="diskutil"
+alias ppl="plutil -p"
+alias lc="launchctl"
+
 alias sw="swift"
