@@ -94,15 +94,6 @@
 	DYQNiQ2UDZ0Nqg2tDboNww3IDdAAAAAAAAACAQAAAAAAAAAzAAAAAAAAAAAAAAAAAAAN
 	0w==
 	</data>
-	<key>Font</key>
-	<data>
-	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
-	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
-	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QElJv
-	Ym90b01vbm8tUmVndWxhctIXGBkaWiRjbGFzc25hbWVYJGNsYXNzZXNWTlNGb250ohkb
-	WE5TT2JqZWN0CBEaJCkyN0lMUVNYXmdud36FjpCSlKmuucLJzAAAAAAAAAEBAAAAAAAA
-	ABwAAAAAAAAAAAAAAAAAAADV
-	</data>
 	<key>FontAntialias</key>
 	<true/>
 	<key>FontHeightSpacing</key>
@@ -217,7 +208,7 @@
 	AAAAAAAAAAAAAAAAEz0=
 	</data>
 	<key>SetLanguageEnvironmentVariables</key>
-	<false/>
+	<true/>
 	<key>ShouldRestoreContent</key>
 	<false/>
 	<key>ShowActiveProcessArgumentsInTitle</key>
