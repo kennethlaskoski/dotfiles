@@ -32,17 +32,16 @@ export LSCOLORS='gxfxcxdxBxEgEdhbhghchd'
 
 export LANG="en_US.UTF-8"
 
-# Added by fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Homebrew autocompletion
+# Homebrew
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
   autoload -Uz compinit
   compinit
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Aliases
 # alias ="sw_vers"
@@ -51,3 +50,5 @@ alias ppl="plutil -p"
 alias lc="launchctl"
 
 alias sw="swift"
+
+alias diff="diff -u --color"
