@@ -1,0 +1,14 @@
+Host *
+  ServerAliveInterval 60
+  ServerAliveCountMax 15
+  TCPKeepAlive no
+
+  HashKnownHosts yes
+
+  AddKeysToAgent yes
+  UseKeychain yes
+
+  IdentityFile ~/.ssh/git/id_ed25519
+  IdentityFile ~/.ssh/github/id_ed25519
+  IdentityFile ~/.ssh/gitlab/id_ed25519
+  IdentityFile ~/.ssh/ubuntu/id_ed25519
