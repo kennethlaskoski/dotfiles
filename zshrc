@@ -32,6 +32,8 @@ export LSCOLORS='gxfxcxdxBxEgEdhbhghchd'
 
 export LANG="en_US.UTF-8"
 
+ssh-add --apple-load-keychain -q
+
 # Homebrew
 if type brew &>/dev/null
 then
@@ -41,7 +43,9 @@ then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+source <(kubectl completion zsh)
 
 # Aliases
 # alias ="sw_vers"
@@ -52,3 +56,19 @@ alias lc="launchctl"
 alias sw="swift"
 
 alias diff="diff -u --color"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
