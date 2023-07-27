@@ -94,6 +94,7 @@ fi
 [ -f /usr/local/kubectl ] && source <(/usr/local/kubectl completion zsh)
 
 # Aliases
+alias diff="diff -u --color"
 alias dsk="diskutil"
 alias lc="launchctl"
 alias ppl="plutil -p"
