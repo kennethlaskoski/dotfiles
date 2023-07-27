@@ -1,0 +1,8 @@
+# defaults write com.apple.dock autohide-delay -float 0.1
+# defaults write com.apple.dock autohide-time-modifier -float 0.3
+# defaults write com.apple.dock mouse-over-hilite-stack -bool true
+# defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+# defaults write com.apple.dock expose-animation-duration -float 0.3
+# defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+# defaults write NSGlobalDomain com.apple.springing.delay -float 0.3
+# defaults write com.apple.helpviewer DevMode -bool true
