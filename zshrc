@@ -97,10 +97,9 @@ fi
 alias dsk="diskutil"
 alias lc="launchctl"
 alias ppl="plutil -p"
-
 alias sw="swift"
-alias os="sw_vers"
-# alias ="sw_vers"
+alias ="sw_vers"  # OPTN-SHFT-K for 
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
