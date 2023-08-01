@@ -25,7 +25,7 @@
 #  ║ /etc/zlogout  ║           │           │ █████████ ║
 #  ╚═══════════════╩═══════════╧═══════════╧═══════════╝
 
-[ -f /opt/homebrew/bin/fortune ] && /opt/homebrew/bin/fortune
+[ -f /opt/homebrew/bin/fortune ] && { echo; /opt/homebrew/bin/fortune; echo; }
 
 # Prompt is '#' (for superuser)
 # or ';' (for regular user),
