@@ -80,14 +80,6 @@ export LANG="en_US.UTF-8"
 
 ssh-add --apple-load-keychain -q
 
-# Homebrew
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  autoload -Uz compinit
-  compinit
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
@@ -99,8 +91,7 @@ alias dsk="diskutil"
 alias lc="launchctl"
 alias ppl="plutil -p"
 alias sw="swift"
-alias ="sw_vers"  # OPTN-SHFT-K for 
-
+alias ="sw_vers"	# ⌥⇧K Option-Shift-K
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -117,3 +108,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Homebrew
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+autoload -Uz compinit
+compinit
+
+setopt COMPLETE_ALIASES
