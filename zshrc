@@ -25,8 +25,6 @@
 #  ║ /etc/zlogout  ║           │           │ █████████ ║
 #  ╚═══════════════╩═══════════╧═══════════╧═══════════╝
 
-[ -f /opt/homebrew/bin/fortune ] && { echo; /opt/homebrew/bin/fortune; echo; }
-
 # Prompt is '#' (for superuser)
 # or ';' (for regular user),
 # colored cyan if last exit ($?) ain't 0
@@ -80,18 +78,26 @@ export LANG="en_US.UTF-8"
 
 ssh-add --apple-load-keychain -q
 
+# Homebrew
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+autoload -Uz compinit
+compinit
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /opt/homebrew/bin/fortune ] && { echo; /opt/homebrew/bin/fortune; echo; }
 [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 [ -f /usr/local/kubectl ] && source <(/usr/local/kubectl completion zsh)
 
-# Aliases
-alias diff="diff -u --color"
-alias dsk="diskutil"
-alias lc="launchctl"
-alias ppl="plutil -p"
-alias sw="swift"
-alias ="sw_vers"	# ⌥⇧K Option-Shift-K
+# Modular
+export MODULAR_HOME="/Users/kenneth/.modular"
+export PATH="/Users/kenneth/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+
+export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -108,13 +114,30 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Homebrew
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
+# zsh parameter completion for the dotnet CLI
+_dotnet_zsh_complete()
+{
+  local completions=("$(dotnet complete "$words")")
 
-autoload -Uz compinit
-compinit
+  # If the completion list is empty, just continue with filename selection
+  if [ -z "$completions" ]
+  then
+    _arguments '*::arguments: _normal'
+    return
+  fi
+
+  # This is not a variable assignment, don't remove spaces!
+  _values = "${(ps:\n:)completions}"
+}
+
+compdef _dotnet_zsh_complete dotnet
+
+# Aliases
+alias diff="diff -u --color"
+alias dsk="diskutil"
+alias lc="launchctl"
+alias ppl="plutil -p"
+alias sw="swift"
+alias ="sw_vers"	# ⌥⇧K Option-Shift-K
 
 setopt COMPLETE_ALIASES
